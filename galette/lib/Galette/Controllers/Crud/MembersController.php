@@ -1319,10 +1319,13 @@ class MembersController extends CrudController
         } else {
             $this->flash->addMessage(
                 'success_detected',
-                str_replace(
-                    '%count',
-                    (string)$mass,
-                    _T('%count members has been changed successfully!')
+                sprintf(
+                    _Tn(
+                        '%1$s member has been changed successfully!',
+                        '%1$s members has been changed successfully!',
+                        $mass
+                    ),
+                    $mass
                 )
             );
         }
